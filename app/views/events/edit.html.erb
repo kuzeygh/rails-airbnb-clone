@@ -1,2 +1,19 @@
 <h1>Events#edit</h1>
-<p>Find me in app/views/events/edit.html.erb</p>
+
+<%= simple_form_for(@event) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :name, required: true, autofocus: true %>
+    <%= f.input :event_time, required: true, autofocus: true %>
+    <%= f.input :description, required: true, autofocus: true %>
+    <%= f.input :category, required: true, autofocus: true %>
+    <%= f.input :location, required: true, autofocus: true %>
+    <%= f.hidden_field :user_id, value: current_user.id %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, "Save changes" %>
+  </div>
+  <%= link_to "Delete the event", event_path(@event), method: :delete %>
+<% end %>
