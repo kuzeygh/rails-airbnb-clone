@@ -7,7 +7,7 @@
 }
 
 .banner-text {
-  color: white;
+  color: rgba(255, 255, 255, 0.75);
   padding-top: 20%;
   margin-top: 0 auto;
   margin-bottom: 230px;
@@ -16,7 +16,8 @@
 }
 
 .banner-text h1 {
-
+  font-weight: bold;
+  text-transform: uppercase;
 }
 
 .search-bar {
