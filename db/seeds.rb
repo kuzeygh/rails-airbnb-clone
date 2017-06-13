@@ -80,7 +80,7 @@ event_attributes = [
     description: "Bots are the apps. Really? Come and learn more",
     location:      "112 rue du Fg St-Honoré 75008 Paris",
     category:  "tech",
-    user_id: User.first.id,
+    user: User.all.sample,
   },
   {
     name: "Cooking with Wlad",
@@ -88,7 +88,7 @@ event_attributes = [
     description: "Learn how to cook a tartiflette",
     location:      "112 rue Barbet 75007 Paris",
     category:  "food",
-    user_id: User.first.id,
+    user: User.all.sample,
   },
 
   {
@@ -97,7 +97,7 @@ event_attributes = [
     description: "Fed up of the world as it is? Come and dream with us",
     location:      "Park of Mont Serat",
     category:  "WTF",
-    user_id: User.first.id,
+    user: User.all.sample,
   },
 
  {
@@ -106,7 +106,7 @@ event_attributes = [
     description: "Hard Techno",
     location:      "Pacha",
     category:  "music",
-    user_id: User.first.id,
+    user: User.all.sample,
   },
 
 
@@ -116,7 +116,7 @@ event_attributes = [
     description: "Try the best of Rioja",
     location:      "Bodega Ginoa",
     category:  "food",
-    user_id: User.first.id,
+    user: User.all.sample,
   },
 
  {
@@ -125,7 +125,7 @@ event_attributes = [
     description: "Paint your disctrict with the collective paint my city",
     location:      "Gracia metro",
     category:  "art",
-    user_id: User.first.id,
+    user: User.all.sample,
   },
 
 
