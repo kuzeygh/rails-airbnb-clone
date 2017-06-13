@@ -21,11 +21,12 @@
     <!-- Text link -->
     <a href="" class="navbar-wagon-item navbar-wagon-link">
       <% if user_signed_in? %>
-        <%= link_to "Log Out", destroy_user_session, method: :delete %>
+        <%= link_to "Log Out", destroy_user_session_path, method: :delete %>
       <% else %>
         <%= link_to "Log In", new_user_session_path %>
       <% end %>
     </a>
+
 
     <!-- Notification link-->
     <a href="" class="navbar-wagon-item navbar-wagon-link">
@@ -40,7 +41,7 @@
       <div class="dropdown">
         <img src="http://placehold.it/50x50" class="avatar dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown">
         <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-          <li><a href="#">Profile</a></li>
+          <li> <%= link_to "Profile", edit_user_registration_path %></li>
           <li><a href="#">Dashboard</a></li>
           <li><a href="#">Log Out</a></li>
         </ul>
