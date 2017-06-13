@@ -22,6 +22,7 @@ user_attributes = [
     first_name: "Louis",
     last_name:      "Doba",
     description:  "I'm a young cook living in Barcelona. I'm from France and I love jamon.",
+    password: "lololo"
   },
 
    {
@@ -29,37 +30,43 @@ user_attributes = [
     first_name: "Charlie",
     last_name:      "Swesson",
     description:  "Young, cool, long hair, nice bear. I'm vegan but I would eat Gina",
+    password: "lololo"
   },
 
     {
     email: "francesca.dicenta@f.fr",
     first_name: "francesca",
     last_name:      "Dicenta",
-    description:  "Italiano de Verona!!"
+    description:  "Italiano de Verona!!",
+    password: "lololo"
   },
     {
     email: "vikariusu@gh.com",
     first_name: "vikariusu",
     last_name:      "Polashka",
-    description:  "I live in Barcelona for the next two months"
+    description:  "I live in Barcelona for the next two months",
+    password: "lololo"
   },
     {
     email: "parma@gui.com",
     first_name: "Patrick",
     last_name:      "Wilson",
-    description:  "Hey lads, I come from Ireland!!"
+    description:  "Hey lads, I come from Ireland!!",
+    password: "lololo"
   },
     {
     email: "super@gh.com",
     first_name: "Sabrina",
     last_name:      "Sapa",
-    description:  "I'm super Sabrina"
+    description:  "I'm super Sabrina",
+    password: "lololo"
   },
     {
     email: "orange@iui.com",
     first_name: "Orange",
     last_name:      "Tree",
-    description:  "Can't move as I'm a tree."
+    description:  "Can't move as I'm a tree.",
+    password: "lololo"
   },
 
 ]
@@ -69,7 +76,7 @@ end
 
 puts 'Finished!'
 
-puts 'Cleaning database...'
+puts 'Cleaning database for Events...'
 Event.destroy_all
 
 puts 'Creating events...'
