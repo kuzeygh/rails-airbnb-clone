@@ -1,0 +1,6 @@
+<h4>My events</h4>
+<% @myevents.each do |event| %>
+  <h2> <%= link_to event.name, event_path(event) %> </h2>
+<% end %>
+
+<% @myevents = Attendance.where(user_id: current_user.id).map { |attendance| attendance.event } %>
