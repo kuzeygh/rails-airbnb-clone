@@ -21,7 +21,6 @@ class EventsController < ApplicationController
     # @myevents = Attendance.where(user_id: current_user.id).map{ |attendance| attendance.event }
     # end
 
-
   end
 
   def show
@@ -58,6 +57,8 @@ class EventsController < ApplicationController
     redirect_to event_path(@event)
     flash[:notice] = "You have successfully booked this event"
   end
+
+
 
   private
 
