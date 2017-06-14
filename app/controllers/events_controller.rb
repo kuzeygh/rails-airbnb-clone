@@ -21,7 +21,6 @@ class EventsController < ApplicationController
     # @myevents = Attendance.where(user_id: current_user.id).map{ |attendance| attendance.event }
     # end
 
-
   end
 
   def show
@@ -57,6 +56,8 @@ class EventsController < ApplicationController
     Attendance.create(user_id: @user.id, event_id: @event.id)
     redirect_to event_path(@event)
   end
+
+
 
   private
 
