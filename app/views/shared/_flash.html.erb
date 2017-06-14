@@ -1,13 +1,23 @@
 <% if flash[:notice] %>
   <div class="alert alert-info fade in">
-    <button class="close" data-dismiss="alert">×</button>
+    <!-- <button class="close" data-dismiss="alert">×</button> -->
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <!--
     <%= flash[:notice] %>
+    -->
+    <%= notice %>
   </div>
 <% end %>
 
+
 <% if flash[:alert] %>
-  <div class="flash">
-    <button class="close" data-dismiss="alert">×</button>
+  <div class="flash flash-info fade in">
+   <!--  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button> -->
+    <!-- <button class="close" data-dismiss="alert">×</button> -->
+    <!--
     <%= flash[:alert] %>
+    -->
+    <%= alert %>
+
   </div>
 <% end %>
