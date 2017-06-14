@@ -1,9 +1,12 @@
 class EventsController < ApplicationController
   before_action :set_event, only:[:show, :edit, :update, :destroy]
+  before_action :require_login, only: [:new, :create, :book]
 
   def index
     @events = Event.all
+    if current_user
     @myevents = Attendance.where(user_id: current_user.id).map{ |attendance| attendance.event }
+    end
 
   end
 
@@ -49,6 +52,13 @@ class EventsController < ApplicationController
 
   def event_params
     params.require(:event).permit(:name, :event_time, :description, :category, :location, :user_id, :photo, :photo_cache)
+  end
+
+  def require_login
+    if !current_user
+       flash[:alert] = "You need to log-in to do this action"
+      redirect_to new_user_session_path
+    end
   end
 
 end
