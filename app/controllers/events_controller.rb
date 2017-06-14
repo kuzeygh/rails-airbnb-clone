@@ -2,8 +2,23 @@ class EventsController < ApplicationController
   before_action :set_event, only:[:show, :edit, :update, :destroy]
 
   def index
-    @events = Event.all
-    @myevents = Attendance.where(user_id: current_user.id).map{ |attendance| attendance.event }
+    # @category = params[:event][:category]
+    # @events = Event.where(category: @category)
+    # @myevents = Attendance.where(user_id: current_user.id).map{ |attendance| attendance.event }
+
+    # @category = params[:event][:category]
+    # @events = Event.where(category: @category)
+    # @myevents = Attendance.where(user_id: current_user.id).map{ |attendance| attendance.event }
+
+    # @category = params[:event][:category]
+    if params[:event].nil? || params[:event][:category].nil? || params[:event][:category] == ""
+      @events = Event.all
+    else
+      @category = params[:event][:category]
+      @events = Event.where(category: @category)
+      @myevents = Attendance.where(user_id: current_user.id).map{ |attendance| attendance.event }
+    end
+
 
   end
 

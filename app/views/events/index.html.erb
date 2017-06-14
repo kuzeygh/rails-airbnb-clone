@@ -1,10 +1,7 @@
 <h3>All events</h3>
-<% @events.each do |event| %>
-  <h2> <%= link_to event.name, event_path(event) %> </h2>
+<% unless @events.nil? %>
+  <% @events.each do |event| %>
+    <h2> <%= link_to event.name, event_path(event) %> </h2>
+  <% end %>
 <% end %>
 
-
-<h4>My events</h4>
-<% @myevents.each do |event| %>
-  <h2> <%= link_to event.name, event_path(event) %> </h2>
-<% end %>
