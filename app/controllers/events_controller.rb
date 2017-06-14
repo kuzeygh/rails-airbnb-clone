@@ -56,6 +56,7 @@ class EventsController < ApplicationController
     @user = current_user
     Attendance.create(user_id: @user.id, event_id: @event.id)
     redirect_to event_path(@event)
+    flash[:notice] = "You have successfully booked this event"
   end
 
   private
