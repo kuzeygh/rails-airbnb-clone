@@ -1,8 +1,34 @@
-<h2>Event name: <%= @event.name %></h2>
-<h2>Time: <%= @event.event_time %> </h2>
-<h2>Description: <%= @event.description %> </h2>
-<h2>Category: <%= @event.category %> </h2>
-<h2>Location: <%= @event.location %> </h2>
-<h2>Host: <%= @event.user.first_name %> </h2>
 
-<%= link_to "Book this event", event_book_path(@event), class: "btn" %>
+<% if @event.photo? %>
+  <div class="banner-event" style="background-image: linear-gradient(135deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.5) 50%), url('<%= cl_image_path @event.photo %>')">
+<% else %>
+  <div class="banner-event" style="background-image: linear-gradient(135deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.5) 50%), url('/assets/background-image.jpg')">
+<% end %>
+    <div class="banner-event-text">
+      <h1><%= @event.name %></h1>
+      <%= link_to "Book this event", event_book_path(@event), class: "navbar-wagon-item navbar-wagon-button btn" %>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class='col-xs-12 col-sm-10 col-sm-offset-1 col-md-6 col-md-offset-3'>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="container" style="padding: 50px 0;">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <h2>Time: <%= @event.event_time %> </h2>
+      <h2>Description: <%= @event.description %> </h2>
+      <h2>Category: <%= @event.category %> </h2>
+      <h2>Location: <%= @event.location %> </h2>
+      <h2>Host: <%= @event.user.first_name %> </h2>
+      <%= link_to "Book this event", event_book_path(@event), class: "navbar-wagon-item navbar-wagon-button btn" %>
+    </div>
+  </div>
+</div>

@@ -21,6 +21,7 @@ user_attributes = [
     email: "lola@gh.com",
     first_name: "Louis",
     last_name:      "Doba",
+    password: "password",
     description:  "I'm a young cook living in Barcelona. I'm from France and I love jamon.",
     password: "lololo"
   },
@@ -29,6 +30,7 @@ user_attributes = [
     email: "charlie@sweeden.se",
     first_name: "Charlie",
     last_name:      "Swesson",
+    password: "password",
     description:  "Young, cool, long hair, nice bear. I'm vegan but I would eat Gina",
     password: "lololo"
   },

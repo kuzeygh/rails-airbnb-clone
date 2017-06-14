@@ -1,7 +1,16 @@
-<h3>All events</h3>
-<% unless @events.nil? %>
-  <% @events.each do |event| %>
-    <h2> <%= link_to event.name, event_path(event) %> </h2>
-  <% end %>
-<% end %>
+
+<div class="wrapper">
+  <div class="container-pages">
+
+    
+    <h3>All events</h3>
+    <% unless @events.nil? %>
+      <% @events.each do |event| %>
+        <h2> <%= link_to event.name, event_path(event) %> </h2>
+      <% end %>
+    <% end %>
+
+   
+  </div>
+</div>
 
