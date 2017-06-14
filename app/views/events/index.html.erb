@@ -2,10 +2,15 @@
 
   <div class="container-pages">
 
+    <h3>All events</h3>
     <% @events.each do |event| %>
-  <h2> <%= link_to event.name, event_path(event) %> </h2>
-<% end %>
+      <h2> <%= link_to event.name, event_path(event) %> </h2>
+    <% end %>
 
+    <h4>My events</h4>
+    <% @myevents.each do |event| %>
+      <h2> <%= link_to event.name, event_path(event) %> </h2>
+    <% end %>
 
   </div>
 
