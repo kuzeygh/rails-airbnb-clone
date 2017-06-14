@@ -1,11 +1,12 @@
 .flash {
   margin: 0;
   text-align: center;
-  color: red;
-  background: $green;
+  // color: red;
+  background: $red;
+  color: white;
 }
 .flash-info {
-  background: $green;
+  background: $red;
 }
 .flash-warning {
   background: $red;
