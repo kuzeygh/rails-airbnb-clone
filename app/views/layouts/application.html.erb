@@ -19,8 +19,11 @@
     <% if alert %>
       <p class="alert"><%= alert %></p>
     <% end %>
+
     <%= yield %>
+
     <%= render "shared/footer" %>
+
     <%= javascript_include_tag 'application' %>
   </body>
 </html>
