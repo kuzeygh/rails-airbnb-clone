@@ -1,10 +1,14 @@
 
-<div class="banner-event" style="background-image: linear-gradient(135deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.5) 50%), url('/assets/background-image.jpg')">
-  <div class="banner-event-text">
-    <h1><%= @event.name %></h1>
-    <%= link_to "Book this event", event_book_path(@event), class: "navbar-wagon-item navbar-wagon-button btn" %>
+<% if @event.photo? %>
+  <div class="banner-event" style="background-image: linear-gradient(135deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.5) 50%), url('<%= cl_image_path @event.photo %>')">
+<% else %>
+  <div class="banner-event" style="background-image: linear-gradient(135deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.5) 50%), url('/assets/background-image.jpg')">
+<% end %>
+    <div class="banner-event-text">
+      <h1><%= @event.name %></h1>
+      <%= link_to "Book this event", event_book_path(@event), class: "navbar-wagon-item navbar-wagon-button btn" %>
+    </div>
   </div>
-</div>
 
   <div class="container">
     <div class="row">
