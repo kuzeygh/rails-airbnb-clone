@@ -1,16 +1,18 @@
 
 <div class="wrapper">
   <div class="container-pages">
-
-      <h2>All events</h2>
+      <div class="title-index">
+        <h2>What are you up to?</h2>
+      </div>
       <% unless @events.nil? %>
         <% @events.each do |event| %>
           <div class="product">
           <!-- default photo or added photo -->
-            <% if @event.photo? %>
+            <% if event.photo? %>
             <img src =('<%= image_tag @event.photo %>') alt="chosen-image" class="product-image hidden-xs">
             <% else %>
-            <img src ='https://unsplash.com/photos/anV_zgNDZhc' alt="default-image" class="product-image hidden-xs">
+            <%= image_tag(('background-image.jpg'), class: "product-image hidden-xs") %>
+<!--             <img src ='https://unsplash.com/photos/anV_zgNDZhc' alt="default-image" class="product-image hidden-xs"> -->
             <% end %>
 
 <!--             <img src="kudoz.jpg" alt="kudoz" class="product-image hidden-xs"> -->
