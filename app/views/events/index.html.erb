@@ -8,12 +8,12 @@
         <% @events.each do |event| %>
           <div class="product">
           <!-- default photo or added photo -->
-            <% if event.photo? %>
-            <img src =('<%= image_tag @event.photo %>') alt="chosen-image" class="product-image hidden-xs">
-            <% else %>
+
+
+
             <%= image_tag(('https://images.unsplash.com/photo-1478812954026-9c750f0e89fc?dpr=2&auto=format&fit=crop&w=1500&h=1000&q=80&cs=tinysrgb&crop=&bg='), class: "product-image hidden-xs") %>
 <!--             <img src ='https://unsplash.com/photos/anV_zgNDZhc' alt="default-image" class="product-image hidden-xs"> -->
-            <% end %>
+
 
 <!--             <img src="kudoz.jpg" alt="kudoz" class="product-image hidden-xs"> -->
             <div class='product-body'>
