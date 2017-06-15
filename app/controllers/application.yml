@@ -9,4 +9,3 @@ development:
 production:
   FB_ID: "139764416585345"
   FB_SECRET: "68afb8234740a070c73196fdb473cdb6"
-  CLOUDINARY_URL: "cloudinary://795825622723135:fFNBZdQziaIiI2bHMLUJZtUQcU0@charliejeppsson"

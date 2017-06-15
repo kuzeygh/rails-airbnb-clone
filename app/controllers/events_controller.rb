@@ -32,8 +32,12 @@ class EventsController < ApplicationController
 
   def create
     @event = Event.new(event_params)
-    @event.save
-    redirect_to events_path
+
+    if @event.save
+      redirect_to events_path
+    else
+      render :new
+    end
   end
 
   def edit
@@ -51,7 +55,7 @@ class EventsController < ApplicationController
   end
 
   def book
-    @event = Event.find(params[:event_id])
+    @event = event
     @user = current_user
     Attendance.create(user_id: @user.id, event_id: @event.id)
     redirect_to event_path(@event)

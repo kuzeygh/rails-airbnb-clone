@@ -1,6 +1,20 @@
+
 <div class="container">
   <div class="row">
     <div class="col-sm-6 col-sm-offset-3 text-center">
+
+<h4>As a guest</h4>
+  <% if @myattendances.empty? %>
+    You are not attending any event
+<!--     todo : put a button to attend an event -->
+<% else %>
+    <% @myattendances.each do |attendance| %>
+      <h2> <%= link_to attendance.event.name, event_path(attendance.event) %> </h2>
+      <%= link_to "Unbook this event", attendance_path(attendance), method: :delete, data: {confirm: "are you sure ?"} %>
+    <% end %>
+  <% end %>
+<br>
+
 
       <div class="profile-dash">
         <img src="http://style.anu.edu.au/_anu/4/images/placeholders/person.png" alt="" class="avatar-large avatar-dash">
