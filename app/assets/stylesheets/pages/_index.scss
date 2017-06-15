@@ -16,6 +16,7 @@
 
 .product {
   display: flex;
+  display: inline-block;
   align-items: center;
   padding: 20px;
   border-radius: 3px;
@@ -96,3 +97,8 @@
 // .product:hover .product-upvote { transform: scale(1.2) }
 .product:hover .product-controls-hidden a { color: #E6E6E6 }
 .product-upvote:hover .product-arrow { border-bottom: 9px solid #5898f1 }
+
+
+.map {
+  display: inline-block;
+}
