@@ -4,7 +4,9 @@ Rails.application.routes.draw do
     get 'book', to: "events#book"
   end
 
-  devise_for :users do
+  devise_for :users
+
+  resources :users do
     get 'dashboard', to: "users#dashboard"
   end
 
