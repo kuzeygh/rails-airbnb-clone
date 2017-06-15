@@ -1,16 +1,34 @@
 
 <div class="wrapper">
   <div class="container-pages">
+      <div class="title-index">
+        <h2>What are you up to?</h2>
+      </div>
+      <% unless @events.nil? %>
+        <% @events.each do |event| %>
+          <div class="product">
+          <!-- default photo or added photo -->
 
-    
-    <h3>All events</h3>
-    <% unless @events.nil? %>
-      <% @events.each do |event| %>
-        <h2> <%= link_to event.name, event_path(event) %> </h2>
+
+
+            <%= image_tag(('https://images.unsplash.com/photo-1478812954026-9c750f0e89fc?dpr=2&auto=format&fit=crop&w=1500&h=1000&q=80&cs=tinysrgb&crop=&bg='), class: "product-image hidden-xs") %>
+<!--             <img src ='https://unsplash.com/photos/anV_zgNDZhc' alt="default-image" class="product-image hidden-xs"> -->
+
+
+<!--             <img src="kudoz.jpg" alt="kudoz" class="product-image hidden-xs"> -->
+            <div class='product-body'>
+              <h3> <%= link_to event.name, event_path(event) %> </h3>
+              <p><%= event.description %></p>
+            </div>
+            <ul class="list-inline product-controls product-controls-hidden hidden-sm hidden-xs">
+              <li><a href=""><i class="fa fa-heart"></i></a></li>
+              <li><a href=""><i class="fa fa-share"></i></a></li>
+              <li><a href=""><i class="fa fa-star"></i></a></li>
+            </ul>
+          </div>
+        <% end %>
       <% end %>
-    <% end %>
 
-   
   </div>
 </div>
 

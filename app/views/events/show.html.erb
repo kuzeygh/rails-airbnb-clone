@@ -29,6 +29,10 @@
       <h2>Location: <%= @event.location %> </h2>
       <h2>Host: <%= @event.user.first_name %> </h2>
       <%= link_to "Book this event", event_book_path(@event), class: "navbar-wagon-item navbar-wagon-button btn" %>
+      <div>
+          <p></br></p>
+      </div>
+      <%= link_to "Go back", events_path %>
     </div>
   </div>
 </div>
