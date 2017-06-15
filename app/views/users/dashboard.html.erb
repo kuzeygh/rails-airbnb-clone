@@ -1,0 +1,21 @@
+<h4>As a guest</h4>
+  <% if @myevents.nil? %>
+    You are not attending any event
+<!--     todo : put a button to attend an event -->
+<% else %>
+    <% @myevents.each do |event| %>
+      <h2> <%= link_to event.name, event_path(event) %> </h2>
+    <% end %>
+  <% end %>
+<br>
+
+
+<h4>as a host</h4>
+  <% if @user.events.nil? %>
+  <p>you re not hosting any event</p>
+<!--     todo : put a button to create an event -->
+  <% else %>
+    <% @user.events.each do |event| %>
+    <h2> <%= link_to event.name, event_path(event) %> </h2>
+  <% end %>
+<% end %>
