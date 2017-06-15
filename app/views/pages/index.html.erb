@@ -1,5 +1,5 @@
 <h4>As a guest</h4>
-  <% if @myevents.nil? %>
+  <% if @myevents.empty? %>
     You are not attending any event
 <!--     todo : put a button to attend an event -->
 <% else %>
@@ -11,7 +11,7 @@
 
 
 <h4>as a host</h4>
-  <% if @user.events.nil? %>
+  <% if @user.events.empty? %>
   <p>you re not hosting any event</p>
 <!--     todo : put a button to create an event -->
   <% else %>
