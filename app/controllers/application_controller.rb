@@ -20,6 +20,8 @@ class ApplicationController < ActionController::Base
     if (request.path != "/users/sign_in" &&
         request.path != "/users/sign_up" &&
         request.path != "/users/sign_out" &&
+        request.path != "/users/auth/facebook" &&
+        request.path != "/users/auth/facebook/callback" &&
       !request.xhr?) # don't store ajax calls
     session[:previous_url] = request.fullpath
     end
