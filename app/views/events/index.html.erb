@@ -1,6 +1,6 @@
-      <div class="title-index">
+    <div class="wrapper">
+      <div class="products">
         <h2>What are you up to?</h2>
-      </div>
       <% unless @events.nil? %>
       <ul class="list-unstyled">
         <% @events.each do |event| %>
@@ -28,10 +28,11 @@
         <% end %>
         </ul>
       <% end %>
-  </div>
+      </div>
 
 <div class="map">
   <%= image_tag(('http://www.harvard.edu/sites/default/files/content/harvard-map-google.jpg'), class: "map") %>
+</div>
 
-
+</div>
 <!-- display: inline-block -->

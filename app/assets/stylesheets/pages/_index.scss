@@ -3,20 +3,24 @@
 .wrapper {
   padding-bottom: 25px;
   padding-top: 6px;
+  display: flex;
+  justify-content: space-between;
 }
 
 .container-pages {
   padding-left: 20px;
 }
 
-.title-index h2 {
+.products h2 {
   color: #505D73;
   font-size: 30px;
 }
 
+.products {
+  padding-left: 30px;
+}
+
 .product {
-  display: flex;
-  display: inline-block;
   align-items: center;
   padding: 20px;
   border-radius: 3px;
@@ -100,5 +104,7 @@
 
 
 .map {
-  display: inline-block;
+  position: fixed;
+  // bottom: 0;
+  right: 0;
 }
