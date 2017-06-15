@@ -1,3 +1,4 @@
+
 class Event < ApplicationRecord
   validates :name, presence: true
   validates :category, presence: true
@@ -8,4 +9,7 @@ class Event < ApplicationRecord
 
   mount_uploader :photo, PhotoUploader
   belongs_to :user
+
+  geocoded_by :location
+  after_validation :geocode, if: :location_changed?
 end

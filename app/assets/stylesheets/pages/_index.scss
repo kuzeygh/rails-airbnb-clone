@@ -103,8 +103,16 @@
 .product-upvote:hover .product-arrow { border-bottom: 9px solid #5898f1 }
 
 
-.map {
+// #map {
+//   position: fixed;
+//   // bottom: 0;
+//   right: 0;
+// }
+
+.wrapper-map {
   position: fixed;
-  // bottom: 0;
-  right: 0;
+  width: 50%;
+  // display: block;
+  // float: right;
+  // z-index: 10;
 }
