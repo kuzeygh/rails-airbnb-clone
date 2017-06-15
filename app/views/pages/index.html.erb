@@ -1,10 +1,11 @@
 <h4>As a guest</h4>
-  <% if @myevents.empty? %>
+  <% if @myattendances.empty? %>
     You are not attending any event
 <!--     todo : put a button to attend an event -->
 <% else %>
-    <% @myevents.each do |event| %>
-      <h2> <%= link_to event.name, event_path(event) %> </h2>
+    <% @myattendances.each do |attendance| %>
+      <h2> <%= link_to attendance.event.name, event_path(attendance.event) %> </h2>
+      <%= link_to "Unbook this event", attendance_path(attendance), method: :delete, data: {confirm: "are you sure ?"} %>
     <% end %>
   <% end %>
 <br>
