@@ -1,21 +1,44 @@
-<h4>As a guest</h4>
-  <% if @myevents.empty? %>
-    You are not attending any event
-<!--     todo : put a button to attend an event -->
-<% else %>
-    <% @myevents.each do |event| %>
-      <h2> <%= link_to event.name, event_path(event) %> </h2>
-    <% end %>
-  <% end %>
-<br>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6 col-sm-offset-3 text-center">
+
+      <div class="profile-dash">
+        <img src="http://style.anu.edu.au/_anu/4/images/placeholders/person.png" alt="" class="avatar-large avatar-dash">
+        <p> <%= current_user.first_name %> <%= current_user.last_name  %> </p>
+
+        <% if current_user.description.nil? %>
+          <p>You don't have any description yet. Tell us more about yourself!</p>
+          <%= link_to "Edit your profile",  edit_user_registration_path(current_user) %>
+        <% else %>
+          <p> <%= current_user.description %> </p>
+        <% end %>
+      </div>
 
 
-<h4>as a host</h4>
-  <% if @user.events.empty? %>
-  <p>you re not hosting any event</p>
-<!--     todo : put a button to create an event -->
-  <% else %>
-    <% @user.events.each do |event| %>
-    <h2> <%= link_to event.name, event_path(event) %> </h2>
-  <% end %>
-<% end %>
+      <h4>As a guest</h4>
+        <% if @myattendances.empty? %>
+          <p>You are not attending any events</p>
+      <!--     todo : put a button to attend an event -->
+      <% else %>
+          <% @myattendances.each do |event| %>
+            <h5> <%= link_to attendance.event.name, event_path(attendance.event) %> </h5>
+          <% end %>
+        <% end %>
+      <br>
+
+      <hr>
+
+      <h4 class="lala">As a host</h4>
+        <% if @user.events.empty? %>
+        <p>You're not hosting any events</p>
+        <% else %>
+          <% @user.events.each do |event| %>
+          <div >
+          <%= link_to event.name, event_path(event) %>
+          <p style="font-weight: lighter"><%= link_to "Edit this event", edit_event_path(event) %></p>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>

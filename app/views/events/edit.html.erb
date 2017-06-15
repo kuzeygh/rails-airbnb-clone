@@ -11,6 +11,9 @@
           <%= f.input :description, required: true, autofocus: true %>
           <%= f.input :category, required: true, autofocus: true %>
           <%= f.input :location, required: true, autofocus: true %>
+          <%= f.input :photo %>
+          <%= f.input :photo_cache, as: :hidden %>
+          <p>*Be nice with the css, add an horizontal picture*</p>
           <%= f.hidden_field :user_id, value: current_user.id %>
         </div>
 
@@ -20,7 +23,7 @@
         <div>
           <p></br></p>
         </div>
-        <%= link_to "Delete the event", event_path(@event), method: :delete %>
+        <%= link_to "Delete the event", event_path(@event), method: :delete %> |
         <%= link_to "Go back", event_path(@event) %>
       <% end %>
     </div>
