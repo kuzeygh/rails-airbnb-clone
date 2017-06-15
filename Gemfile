@@ -18,6 +18,7 @@ gem 'simple_form'
 gem 'autoprefixer-rails'
 gem 'carrierwave', '~> 0.11.2'
 gem 'cloudinary'
+gem 'omniauth-facebook'
 
 group :development, :test do
   gem 'binding_of_caller'
