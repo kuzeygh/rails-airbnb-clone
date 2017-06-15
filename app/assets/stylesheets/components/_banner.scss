@@ -16,8 +16,16 @@
 }
 
 .banner-text h1 {
-  font-weight: bold;
+  letter-spacing: 2px;
+  font-size: 50px;
+  font-weight: 600;
   text-transform: uppercase;
+  font-family: 'Open Sans';
+}
+
+.banner-text p {
+  font-size: 25px;
+  font-weight: lighter;
 }
 
 .search-bar {
