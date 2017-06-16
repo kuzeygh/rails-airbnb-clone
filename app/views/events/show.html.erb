@@ -26,6 +26,7 @@
       <h2>Description: <%= @event.description %> </h2>
       <h2>Category: <%= @event.category %> </h2>
       <h2>Location: <%= @event.location %> </h2>
+      <h2>City: <%= @event.city %> </h2>
       <%= link_to "Attend this event", event_book_path(@event) %>
       <h2>Host: <%= @event.user.first_name %> </h2>
       <%= link_to "Attend this event", event_book_path(@event), class: "navbar-wagon-item navbar-wagon-button btn" %>
