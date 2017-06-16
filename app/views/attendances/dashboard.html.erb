@@ -8,8 +8,10 @@
             <% photo_url = current_user.facebook_picture_url.split("?")[0] + "?type=large" %>
             <img src="<%= photo_url %>" alt="" class="avatar-large avatar-dash" style="width: 200px;">
         <% else %>
+
           <img src="http://style.anu.edu.au/_anu/4/images/placeholders/person.png" alt="" class="avatar-large avatar-dash" style="width: 200px;">
-        <% end %>
+
+               <% end %>
 
         <p> <%= current_user.first_name %> <%= current_user.last_name  %> </p>
 
