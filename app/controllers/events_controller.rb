@@ -8,12 +8,34 @@ class EventsController < ApplicationController
     # @myevents = Attendance.where(user_id: current_user.id).map{ |attendance| attendance.event }
 
     # @category = params[:event][:category]
-    if params[:event].nil? || params[:event][:category].nil? || params[:event][:category] == ""
+    if params[:event].nil? || params[:event][:category].nil? || (params[:event][:category] == "" && params[:event][:city].blank?)
       @events = Event.all
     else
       @category = params[:event][:category]
-      @events = Event.where(category: @category)
+      @city = params[:event][:city]
+      unless @city.blank?
+        if @category == ""
+          @events = Event.where(city: @city)
+        else
+          @events = Event.where(category: @category, city: @city)
+        end
+      else
+        @events = Event.where(category: @category)
+      end
       # @myevents = Attendance.where(user_id: current_user.id).map{ |attendance| attendance.event }
+    end
+
+
+    @hash = Gmaps4rails.build_markers(@events) do |event, marker|
+      if event.latitude
+        marker.lat event.latitude
+        marker.lng event.longitude
+      else
+        marker.lat '29.978'
+        marker.lng '31.1320'
+        # CHANGE!
+      end
+      # marker.infowindow render_to_string(partial: "/flats/map_box", locals: { flat: flat })
     end
 
     # @events = Event.all
@@ -24,6 +46,8 @@ class EventsController < ApplicationController
   end
 
   def show
+    @alert_message = "You are viewing #{@event.name}"
+    @event_coordinates = { lat: @event.latitude, lng: @event.longitude }
 
   end
 
@@ -72,7 +96,7 @@ class EventsController < ApplicationController
   end
 
   def event_params
-    params.require(:event).permit(:name, :event_time, :description, :category, :location, :user_id, :photo, :photo_cache)
+    params.require(:event).permit(:name, :event_time, :description, :category, :location, :city, :user_id, :photo, :photo_cache)
   end
 
   def require_login
