@@ -11,6 +11,10 @@ class Event < ApplicationRecord
   mount_uploader :photo, PhotoUploader
   belongs_to :user
 
+  has_many :attendances
+  has_many :attenders, through: :attendances, source: :user
+
   geocoded_by :location
   after_validation :geocode, if: :location_changed?
+
 end
