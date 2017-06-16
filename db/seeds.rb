@@ -132,7 +132,6 @@ event_attributes = [
     description: "Try the best of Rioja",
     location:      "Bodega Ginoa",
     city:      "Barcelona",
-    category:  "food",
     user: User.all.sample,
   },
 

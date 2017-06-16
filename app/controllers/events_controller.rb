@@ -25,6 +25,19 @@ class EventsController < ApplicationController
       # @myevents = Attendance.where(user_id: current_user.id).map{ |attendance| attendance.event }
     end
 
+
+    @hash = Gmaps4rails.build_markers(@events) do |event, marker|
+      if event.latitude
+        marker.lat event.latitude
+        marker.lng event.longitude
+      else
+        marker.lat '29.978'
+        marker.lng '31.1320'
+        # CHANGE!
+      end
+      # marker.infowindow render_to_string(partial: "/flats/map_box", locals: { flat: flat })
+    end
+
     # @events = Event.all
     # if current_user
     # @myevents = Attendance.where(user_id: current_user.id).map{ |attendance| attendance.event }
@@ -33,6 +46,8 @@ class EventsController < ApplicationController
   end
 
   def show
+    @alert_message = "You are viewing #{@event.name}"
+    @event_coordinates = { lat: @event.latitude, lng: @event.longitude }
   end
 
   def new
