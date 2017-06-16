@@ -18,17 +18,25 @@
   </div>
 </div>
 
-
 <div class="container" style="padding: 50px 0;">
   <div class="row">
     <div class="col-md-6 col-md-offset-3">
-      <h2>Time: <%= @event.event_time %> </h2>
-      <h2>Description: <%= @event.description %> </h2>
-      <h2>Category: <%= @event.category %> </h2>
-      <h2>Location: <%= @event.location %> </h2>
-      <%= link_to "Attend this event", event_book_path(@event) %>
-      <h2>Host: <%= @event.user.first_name %> </h2>
-      <%= link_to "Attend this event", event_book_path(@event), class: "navbar-wagon-item navbar-wagon-button btn" %>
+
+      <p><i class="fa fa-calendar" aria-hidden="true"></i> <%= @event.event_time %> </p>
+      <hr>
+      <p><i class="fa fa-map-marker lg" aria-hidden="true"></i> <%= @event.location %> </p>
+      <hr>
+      <p>City: <%= @event.city %> </p>
+      <hr>
+      <p><i class="fa fa-list" aria-hidden="true"></i> <%= @event.category %> </p>
+      <hr>
+      <p><i class="fa fa-user" aria-hidden="true"></i> <%= @event.user.first_name %> </p>
+      <hr>
+      <p><span class="event-category">Description:</span> <%= @event.description %>
+        <p style="margin: 0 auto"><%= link_to "Attend this event", event_book_path(@event), class: "navbar-wagon-item navbar-wagon-button btn attend-button" %></p>
+
+      </p>
+
       <div>
           <p></br></p>
       </div>
@@ -37,12 +45,40 @@
   </div>
 </div>
 
-
-<% content_for(:after_js) do %>
-  <%= javascript_tag do %>
-    $(document).ready(function() {
-      var coord = <%= raw @flat_coordinates.to_json %>;
-      alert('Flat coordinates are ' + coord.lat + ', ' + coord.lng);
-    });
-  <% end %>
+<ul>
+<% @event.attenders.each do |user| %>
+  <li><%= user.first_name %></li>
 <% end %>
+</ul>
+
+<!-- <div class="container" style="padding: 50px 0;">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <p><span class="event-category">Time:</span> <%= @event.event_time %> </p>
+      <hr>
+      <p><span class="event-category">Location:</span> <%= @event.location %> </p>
+      <hr>
+      <p><span class="event-category">Category:</span> <%= @event.category %> </p>
+      <hr>
+      <p><span class="event-category">Host:</span> <%= @event.user.first_name %> </p>
+      <p><span class="event-category">Description:</span> <%#= @event.description %></p>
+      <%#= link_to "Attend this event", event_book_path(@event), class: "navbar-wagon-item navbar-wagon-button btn" %>
+      <div>
+          <p></br></p>
+      </div>
+      <%#= link_to "Go back", events_path %>
+    </div>
+  </div>
+</div> -->
+
+
+
+<%# content_for(:after_js) do %>
+  <%#= javascript_tag do %>
+<!--     $(document).ready(function() {
+      var coord = <%#= raw @flat_coordinates.to_json %>;
+      alert('Flat coordinates are ' + coord.lat + ', ' + coord.lng);
+    }); -->
+  <%# end %>
+<%# end %>
+

@@ -38,6 +38,7 @@
 
         <div class="search-bar">
           <%= simple_form_for @event, html: { class: "form-inline" }, method: :get do |f| %>
+           <%= f.input :city, placeholder: "city", label: false %>
             <%= f.input :category, placeholder: "Category", collection: @categories, include_blank: "See all categories", label: false %>
             <%= f.button :submit, 'Search', class: "btn btn-success" %>
           <% end %>

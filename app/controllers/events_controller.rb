@@ -8,11 +8,20 @@ class EventsController < ApplicationController
     # @myevents = Attendance.where(user_id: current_user.id).map{ |attendance| attendance.event }
 
     # @category = params[:event][:category]
-    if params[:event].nil? || params[:event][:category].nil? || params[:event][:category] == ""
+    if params[:event].nil? || params[:event][:category].nil? || (params[:event][:category] == "" && params[:event][:city].blank?)
       @events = Event.all
     else
       @category = params[:event][:category]
-      @events = Event.where(category: @category)
+      @city = params[:event][:city]
+      unless @city.blank?
+        if @category == ""
+          @events = Event.where(city: @city)
+        else
+          @events = Event.where(category: @category, city: @city)
+        end
+      else
+        @events = Event.where(category: @category)
+      end
       # @myevents = Attendance.where(user_id: current_user.id).map{ |attendance| attendance.event }
     end
 
@@ -39,6 +48,7 @@ class EventsController < ApplicationController
   def show
     @alert_message = "You are viewing #{@event.name}"
     @event_coordinates = { lat: @event.latitude, lng: @event.longitude }
+
   end
 
   def new
@@ -86,7 +96,7 @@ class EventsController < ApplicationController
   end
 
   def event_params
-    params.require(:event).permit(:name, :event_time, :description, :category, :location, :user_id, :photo, :photo_cache)
+    params.require(:event).permit(:name, :event_time, :description, :category, :location, :city, :user_id, :photo, :photo_cache)
   end
 
   def require_login
