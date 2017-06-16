@@ -44,6 +44,9 @@ Devise.setup do |config|
     secure_image_url: true
 
 
+
+
+
   # Configure parameters from the request object used for authentication. Each entry
   # given should be a request method and it will automatically be passed to the
   # find_for_authentication method and considered in your model lookup. For instance,
