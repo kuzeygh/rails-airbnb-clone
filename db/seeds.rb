@@ -132,6 +132,7 @@ event_attributes = [
     description: "Try the best of Rioja",
     location:      "50 Rue du Faubourg Saint-Honoré 75008 Paris",
     city:      "Paris",
+    category:  "food",
     user: User.all.sample,
   },
 
